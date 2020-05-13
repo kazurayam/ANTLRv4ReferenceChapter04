@@ -35,3 +35,8 @@ application {
     // Define the main class for the application.
     mainClassName = 'com.kazurayam.iniparser.App'
 }
+
+generateGrammarSource {
+    arguments << "-lib" << "src/main/antlr/tour"
+}
+generateGrammarSource.dependsOn(clean)
