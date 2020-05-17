@@ -37,6 +37,6 @@ application {
 }
 
 generateGrammarSource {
-    arguments << "-lib" << "src/main/antlr/tour"
+    arguments << "-lib" << "src/main/antlr/errors" << "-lib" << "src/main/antlr/tour"
 }
 generateGrammarSource.dependsOn(clean)
