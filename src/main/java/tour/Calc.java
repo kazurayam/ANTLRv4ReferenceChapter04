@@ -42,7 +42,7 @@ public class Calc {
         LabeledExprParser parser = new LabeledExprParser(tokens);
         // we do parse
         ParseTree tree = parser.prog();
-        // we visit the tree
+        // now, we visit the tree
         EvalVisitor eval = new EvalVisitor();
         eval.visit(tree);
     }

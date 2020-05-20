@@ -15,6 +15,16 @@ public class EvalVisitor extends LabeledExprBaseVisitor<Integer> {
     /** "memory" for our calculator; variable/value pairs go here */
     Map<String, Integer> memory = new HashMap<String, Integer>();
 
+    /** 'clear' NEWLINE */
+    @Override
+    public Integer visitClearMem(LabeledExprParser.ClearMemContext ctx) {
+        String text = ctx.getText();
+        if (text.contains("clear")) {
+            memory.clear();
+        }
+        return 0;
+    }
+
     /** ID '=' expr NEWLINE */
     @Override
     public Integer visitAssign(LabeledExprParser.AssignContext ctx) {

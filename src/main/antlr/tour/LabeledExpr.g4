@@ -11,10 +11,13 @@ import CommonLexerRules;  // include all rules from CommonLexerRules.g4
  */
 prog: stat+ ;
 
-stat: expr NEWLINE                 # printExpr
+stat: clear NEWLINE                # clearMem
+    | expr NEWLINE                 # printExpr
     | ID '=' expr NEWLINE          # assign
     | NEWLINE                      # blank
     ;
+
+clear: CLEAR ;
 
 expr: expr op=( '*' | '/' ) expr   # MulDiv
     | expr op=( '+' | '-' ) expr   # AddSub
@@ -27,6 +30,6 @@ MUL : '*' ;   // assigns token name to '*' used above in grammar
 DIV : '/' ;
 ADD : '+' ;
 SUB : '-' ;
-
+CLEAR : 'clear';
 
 
