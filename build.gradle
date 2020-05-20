@@ -2,14 +2,13 @@ plugins {
     // Apply the java plugin to add support for Java
     id 'java'
 
-    // Apply the application plugin to add support for building a CLI application.
     id 'application'
 
     id 'antlr'
 }
 
 group 'jp.quick.vthp'
-version '0.2.2'
+version '0.3.0'
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -25,18 +24,17 @@ dependencies {
     implementation group: 'commons-cli', name: 'commons-cli', version: '1.4'
 
     // ANTLR v4
-    antlr 'org.antlr:antlr4:4.7.1'
+    antlr 'org.antlr:antlr4:4.8-1'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
 
 application {
-    // Define the main class for the application.
-    mainClassName = 'com.kazurayam.iniparser.App'
+    mainClassName = 'tour.Calc'
 }
 
 generateGrammarSource {
-    arguments << "-lib" << "src/main/antlr/errors" << "-lib" << "src/main/antlr/tour"
+    arguments << "-lib" << "src/main/antlr/tour" << "-visitor"
 }
 generateGrammarSource.dependsOn(clean)
